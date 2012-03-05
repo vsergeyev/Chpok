@@ -1,0 +1,41 @@
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; /* Disable selection/Copy of UIWebView */
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html, body {
+    margin:0;
+    padding:0;
+}
+
+.wrapper {
+    display: inline-block;
+    width: 320px;
+    height: 465px;
+    padding-top: 15px;
+    background-image: url('bg.png');
+}
+
+.bubble, .replay {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url('image.png');
+    background-size: 40px 40px;
+}
+
+.done {
+    background-image: url('image2.png');
+}
+
+.replay {
+    background-image: url('image3.png');
+}
+
+.placeholder {
+    display: inline-block;
+    width: 20px;
+    height: 40px;
+}

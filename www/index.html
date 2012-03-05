@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title></title>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" media="only screen" href="style.css" type="text/css" />	
+
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.3.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="jquery.js"></script>
+    <script type="text/javascript">
+
+
+    function preventBehavior(e) { 
+        e.preventDefault(); 
+    };
+    document.addEventListener("touchmove", preventBehavior, false);
+
+    function onBodyLoad() {
+	document.addEventListener("deviceready", onDeviceReady, false);
+        //onDeviceReady();
+    }
+
+    function onDeviceReady() {
+        for(i=1;i<82;i++) {
+            if(i % 15 == 0) {
+                    $('.bubble').last().after('<div class="placeholder">&nbsp;</div>');
+                    $('.placeholder').last().after('<div class="bubble">&nbsp;</div>');
+                    continue;
+                } 
+            $('.bubble').last().after('<div class="bubble">&nbsp;</div>');
+        }
+        $('.bubble').last().addClass('replay').removeClass('bubble');
+        $('.replay').click(function(){
+                           $('.done').each(function(){this.className = 'bubble'});
+                           });
+
+        $('.bubble').each(function() {
+                          this.addEventListener('touchstart', function(e) {
+                                                for(var i in e.touches) {
+                                                    var touch = e.touches[i];
+                                                    var node = touch.target;
+
+                                                    if (node.className == 'bubble') {
+                                                        node.className = 'bubble done';
+                                                        PhoneGap.exec("SoundPlug.play", "sound.m4a");
+                                                    }
+                                                }
+                           });
+                          });
+	}
+    </script>
+  </head>
+  <body onload="onBodyLoad()">
+      <div class="wrapper">
+          <div class="placeholder">&nbsp;</div>
+          <div class="bubble">&nbsp;</div>
+      </div>
+  </body>
+</html>
