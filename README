@@ -8,3 +8,14 @@ Game is about popping bubbles on plastic packaging tape.
 
 You can find "Chpok" game in AppStore:
 http://itunes.apple.com/us/app/chpok!/id504498900?ls=1&mt=8
+
+To debug it on the desktop, uncomment
+//onDeviceReady()
+and comment out device-dependent function calls.
+
+If you plan to build it in XCode, you should have "SoundPlug" plugin
+for PhoneGap (can be found on here github).
+Or just comment out sound playing.
+
+Stay cool
+=========
